@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sikandar is a full stack developer building production web apps, mobile experiences, and AI systems." />
-  <title>Sikandar | Full Stack Developer</title>
+  <meta name="description" content="Sikandar builds AI systems, secure software, and production-ready full stack applications." />
+  <title>Sikandar | AI, Cybersecurity & Full Stack Systems</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -328,10 +328,54 @@
       line-height: 1.75;
     }
 
+    .domain-grid,
     .projects {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
+    }
+
+    .domain-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .domain-card {
+      min-height: 190px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(53,208,186,0.08), rgba(245,184,75,0.04)),
+        rgba(21,25,34,0.72);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+    }
+
+    .domain-card b {
+      display: block;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--teal), var(--amber));
+      font-size: 15px;
+    }
+
+    .domain-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .domain-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .projects {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .project {
@@ -361,7 +405,9 @@
     }
 
     .invoice-visual,
-    .ai-visual {
+    .ai-visual,
+    .graph-visual,
+    .security-visual {
       height: 100%;
       min-height: 174px;
       display: grid;
@@ -369,7 +415,9 @@
     }
 
     .invoice-row,
-    .chat-row {
+    .chat-row,
+    .graph-row,
+    .security-row {
       display: flex;
       justify-content: space-between;
       gap: 12px;
@@ -382,7 +430,9 @@
     }
 
     .invoice-row strong,
-    .chat-row strong {
+    .chat-row strong,
+    .graph-row strong,
+    .security-row strong {
       color: var(--text);
     }
 
@@ -399,6 +449,22 @@
     .chat-row.ai {
       margin-right: 34px;
       border-color: rgba(53,208,186,0.34);
+    }
+
+    .graph-row {
+      align-items: center;
+    }
+
+    .graph-row:nth-child(2) {
+      border-color: rgba(159,140,255,0.32);
+    }
+
+    .security-row {
+      border-color: rgba(255,107,87,0.24);
+    }
+
+    .security-row:nth-child(2) {
+      border-color: rgba(245,184,75,0.28);
     }
 
     .project-body {
@@ -428,6 +494,22 @@
       font-size: 15px;
       line-height: 1.75;
       margin-bottom: 22px;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .project-list h4 {
+      color: var(--text);
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .project-list p {
+      margin: 0;
     }
 
     .chips {
@@ -537,6 +619,20 @@
       margin: 0;
     }
 
+    .exploring {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .exploring-title {
+      color: var(--text);
+      font-size: 18px;
+      margin-top: 28px;
+      margin-bottom: 0;
+    }
+
     .contact {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -582,6 +678,7 @@
       }
 
       .projects,
+      .domain-grid,
       .capabilities {
         grid-template-columns: 1fr;
       }
@@ -653,6 +750,7 @@
         </a>
 
         <div class="nav-links">
+          <a href="#domains">Focus</a>
           <a href="#projects">Projects</a>
           <a href="#capabilities">Capabilities</a>
           <a href="#about">About</a>
@@ -665,10 +763,10 @@
   <main id="top">
     <section class="container hero">
       <div>
-        <div class="eyebrow">Full Stack Developer</div>
-        <h1>Production apps, AI systems, and interfaces that feel <span class="highlight">finished</span>.</h1>
+        <div class="eyebrow">AI | Cybersecurity | Full Stack Systems</div>
+        <h1>Building intelligent systems, secure applications, and <span class="highlight">production software</span>.</h1>
         <p class="hero-copy">
-          I build web and mobile products with clean architecture, responsive interfaces, and practical AI workflows. My work spans production business apps, RAG assistants, real-time chat, dashboards, and deployment-ready systems.
+          Computer Science graduate building AI systems, secure software, and production-ready applications. My work spans LLM agents, repository-level reasoning, AI security, cloud infrastructure, and cross-platform products.
         </p>
 
         <div class="actions">
@@ -691,8 +789,12 @@
               <span>Next.js, Django, DRF, mobile-ready UI, production deployment</span>
             </div>
             <div class="terminal-row">
-              <span class="terminal-label">ai</span>
-              <span>RAG assistant with <strong>pgvector</strong>, streaming WebSockets, Ollama, source-backed answers</span>
+              <span class="terminal-label">reason</span>
+              <span>LLM agents, RAG, repository graphs, LangGraph, and source-backed answers</span>
+            </div>
+            <div class="terminal-row">
+              <span class="terminal-label">secure</span>
+              <span>Application security, AI security, IDS research, and vulnerability assessment workflows</span>
             </div>
             <div class="terminal-row">
               <span class="terminal-label">ship</span>
@@ -703,17 +805,49 @@
           <div class="mini-metrics">
             <div class="metric">
               <b>AI</b>
-              <span>Retrieval, embeddings, intent detection, streaming responses</span>
+              <span>Agents, retrieval, repository reasoning, streaming responses</span>
             </div>
             <div class="metric">
-              <b>Web</b>
-              <span>Fast, responsive, accessible product experiences</span>
+              <b>Sec</b>
+              <span>OWASP, app security, AI security, IDS experiments</span>
             </div>
             <div class="metric">
-              <b>Apps</b>
-              <span>Mobile-first workflows for real users and stores</span>
+              <b>Ship</b>
+              <span>Backend, cloud, mobile, and distributed systems</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="domains">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Focus areas</div>
+          <h2>AI, security, and software engineering in one lane.</h2>
+          <p>
+            I work across intelligent systems, secure application design, and production software so ideas can move from prototype to real use.
+          </p>
+        </div>
+
+        <div class="domain-grid">
+          <article class="domain-card">
+            <b>AI</b>
+            <h3>AI Systems</h3>
+            <p>LLM Agents, RAG, Repository Reasoning, LangGraph</p>
+          </article>
+
+          <article class="domain-card">
+            <b>SEC</b>
+            <h3>Cybersecurity</h3>
+            <p>OWASP, App Security, AI Security, IDS</p>
+          </article>
+
+          <article class="domain-card">
+            <b>ENG</b>
+            <h3>Software Engineering</h3>
+            <p>Backend, Cloud, Mobile, Distributed Systems</p>
+          </article>
         </div>
       </div>
     </section>
@@ -722,9 +856,9 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Selected work</div>
-          <h2>Projects with real product weight.</h2>
+          <h2>Featured Projects</h2>
           <p>
-            A tighter look at systems I have built or contributed to: production-ready business software, AI assistant architecture, cross-platform UX, and the infrastructure around them.
+            A focused set of projects showing applied LLM workflows, security research, production software, and the infrastructure around them.
           </p>
         </div>
 
@@ -740,10 +874,10 @@
             </div>
 
             <div class="project-body">
-              <div class="project-meta">Production application</div>
+              <div class="project-meta">Production Products</div>
               <h3>Invogo Australia</h3>
               <p>
-                A modern invoicing and business management platform for contractors, freelancers, and Australian businesses. I contributed to the responsive web experience, mobile app integrations, authentication flows, and production-ready deployment surface.
+                Designed, developed, and deployed a production invoicing platform serving web, Android, and iOS users. Built and owned the complete lifecycle including APIs, authentication, deployment, mobile releases, and production maintenance.
               </p>
 
               <div class="chips">
@@ -772,7 +906,7 @@
             </div>
 
             <div class="project-body">
-              <div class="project-meta">AI sales assistant POC</div>
+              <div class="project-meta">AI Systems</div>
               <h3>Stackr / Memox AI Sales Assistant</h3>
               <p>
                 A RAG-based AI sales assistant for Pacific Container Co. prospects. The system ingests company documents, retrieves relevant chunks with pgvector, streams responses over WebSockets, classifies intent, tracks conversation history, and powers admin views for documents and leads.
@@ -792,6 +926,75 @@
               <div class="project-actions">
                 <a href="stackr_readme.md" class="btn btn-primary">Read Project Notes</a>
                 <a href="https://github.com/ask-sikandar" target="_blank" rel="noreferrer" class="btn btn-secondary">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual" aria-hidden="true">
+              <div class="graph-visual">
+                <div class="graph-row"><strong>AST</strong><span>functions + classes</span></div>
+                <div class="graph-row"><strong>Graph</strong><span>modules + dependencies</span></div>
+                <div class="graph-row"><strong>Agent</strong><span>targeted context traversal</span></div>
+                <div class="graph-row"><strong>Task</strong><span>edit, review, reason</span></div>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta">AI Systems</div>
+              <h3>Repository Graph AI Coding Agent</h3>
+              <p>
+                Built a repository-level coding workflow for LLM systems using AST-based graph representations of functions, classes, modules, and dependencies. Instead of passing entire codebases into the model, the system retrieves targeted context through graph traversal to support code editing, review, and reasoning tasks while reducing token usage and irrelevant context.
+              </p>
+
+              <div class="chips">
+                <span class="chip">AST</span>
+                <span class="chip">Repository Graphs</span>
+                <span class="chip">LLMs</span>
+                <span class="chip">LangGraph</span>
+                <span class="chip">Code Reasoning</span>
+                <span class="chip">AI Agents</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual" aria-hidden="true">
+              <div class="security-visual">
+                <div class="security-row"><strong>IDS</strong><span>federated experiments</span></div>
+                <div class="security-row"><strong>CTF</strong><span>LLM reasoning tests</span></div>
+                <div class="security-row"><strong>Dashboard</strong><span>SQLi + XSS workflows</span></div>
+                <div class="security-row"><strong>Focus</strong><span>security evaluation</span></div>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta">Cybersecurity</div>
+              <h3>Cybersecurity Research & Tooling</h3>
+              <div class="project-list">
+                <div>
+                  <h4>Neurosymbolic Federated IDS</h4>
+                  <p>Designed intrusion detection experiments combining federated learning with neurosymbolic AI to improve distributed threat detection, interpretability, and privacy-preserving learning.</p>
+                </div>
+
+                <div>
+                  <h4>LLMs in CTF Security Challenges</h4>
+                  <p>Evaluated how LLMs perform on cybersecurity CTF-style tasks through controlled experiments, focusing on reasoning ability, limitations, and security problem-solving.</p>
+                </div>
+
+                <div>
+                  <h4>Database Security Dashboard</h4>
+                  <p>Built a dashboard integrating SQL injection and XSS testing workflows to streamline basic vulnerability assessment tasks.</p>
+                </div>
+              </div>
+
+              <div class="chips">
+                <span class="chip">Federated IDS</span>
+                <span class="chip">Neurosymbolic AI</span>
+                <span class="chip">LLM Security</span>
+                <span class="chip">CTF Evaluation</span>
+                <span class="chip">SQL Injection</span>
+                <span class="chip">XSS</span>
               </div>
             </div>
           </article>
@@ -841,37 +1044,46 @@
       <div class="container about">
         <div>
           <div class="section-kicker">About</div>
-          <h2>Clean design, strong engineering, practical delivery.</h2>
+          <h2>Building useful systems where AI and security meet.</h2>
           <p>
-            I am a developer who enjoys turning rough product ideas into polished, working software. I care about the feel of the interface and the shape of the code underneath it.
+            I enjoy building systems at the intersection of AI, security, and software engineering. I am particularly interested in how intelligent systems can be made more reliable, secure, and useful in real-world environments.
           </p>
           <p>
-            My strongest work happens where product thinking and engineering meet: workflows that are easy to use, APIs that are predictable, and systems that can keep growing after the first release.
+            My work includes production applications, LLM-powered workflows, repository-level reasoning systems, and cybersecurity-focused research projects.
           </p>
+
+          <h3 class="exploring-title">Currently Exploring</h3>
+          <div class="exploring" aria-label="Currently exploring">
+            <span class="chip">AI Security</span>
+            <span class="chip">Repository-level reasoning systems</span>
+            <span class="chip">Federated learning</span>
+            <span class="chip">Distributed systems</span>
+            <span class="chip">Rust system tooling</span>
+          </div>
         </div>
 
         <div class="focus-list">
           <div class="focus-item">
-            <span class="focus-icon">UI</span>
-            <div>
-              <h3>Interfaces that communicate quickly</h3>
-              <p>Clear hierarchy, compact layouts, responsive behavior, and visual systems that feel intentional.</p>
-            </div>
-          </div>
-
-          <div class="focus-item">
-            <span class="focus-icon">API</span>
-            <div>
-              <h3>Backends that stay understandable</h3>
-              <p>Separation of concerns, testable services, reliable endpoints, and data structures matched to the product.</p>
-            </div>
-          </div>
-
-          <div class="focus-item">
             <span class="focus-icon">AI</span>
             <div>
-              <h3>AI features with grounded behavior</h3>
-              <p>Retrieval, citations, eval scripts, and mockable architecture for development without heavy infrastructure.</p>
+              <h3>LLM systems with grounded context</h3>
+              <p>Agents, retrieval workflows, graph-based repository context, and reasoning patterns for practical software tasks.</p>
+            </div>
+          </div>
+
+          <div class="focus-item">
+            <span class="focus-icon">SEC</span>
+            <div>
+              <h3>Security-minded engineering</h3>
+              <p>OWASP-aware application design, AI security experiments, vulnerability workflows, and IDS research.</p>
+            </div>
+          </div>
+
+          <div class="focus-item">
+            <span class="focus-icon">OPS</span>
+            <div>
+              <h3>Production software delivery</h3>
+              <p>APIs, authentication, cloud deployment, cross-platform releases, and maintenance for real product surfaces.</p>
             </div>
           </div>
         </div>
@@ -883,14 +1095,16 @@
         <div class="contact">
           <div>
             <div class="section-kicker">Contact</div>
-            <h2>Have a product that needs to feel sharper?</h2>
+            <h2>Let’s build intelligent, secure software.</h2>
             <p>
-              I am interested in full stack products, AI-assisted workflows, production web apps, and polished mobile experiences. Reach me at sikandar.6a@gmail.com.
+              I am interested in AI engineering, fresher cybersecurity roles, and full stack systems work. Reach me at sikandar.6a@gmail.com.
             </p>
           </div>
 
           <div class="actions">
             <a href="mailto:sikandar.6a@gmail.com" class="btn btn-primary">Email Me</a>
+            <a href="resume-ai.pdf" class="btn btn-secondary">AI Resume</a>
+            <a href="resume-cybersecurity.pdf" class="btn btn-secondary">Cybersecurity Resume</a>
             <a href="#projects" class="btn btn-secondary">Projects</a>
             <a href="https://github.com/ask-sikandar" target="_blank" rel="noreferrer" class="btn btn-secondary">GitHub</a>
           </div>
