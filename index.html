@@ -2,497 +2,906 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Sikandar | Developer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sikandar is a full stack developer building production web apps, mobile experiences, and AI systems." />
+  <title>Sikandar | Full Stack Developer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    :root {
+      --bg: #080a0f;
+      --bg-soft: #10131b;
+      --panel: #151922;
+      --panel-strong: #1b202b;
+      --line: rgba(255,255,255,0.12);
+      --text: #f7f2e9;
+      --muted: #a9b1bf;
+      --teal: #35d0ba;
+      --amber: #f5b84b;
+      --coral: #ff6b57;
+      --violet: #9f8cff;
+      --green: #91d969;
+      --shadow: 0 24px 70px rgba(0,0,0,0.36);
     }
 
-    html{
-      scroll-behavior:smooth;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#0b1120;
-      color:white;
-      overflow-x:hidden;
+    html {
+      scroll-behavior: smooth;
     }
 
-    a{
-      text-decoration:none;
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(53,208,186,0.16), transparent 28rem),
+        radial-gradient(circle at 82% 8%, rgba(255,107,87,0.12), transparent 24rem),
+        linear-gradient(135deg, #080a0f 0%, #111013 48%, #081216 100%);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    .container{
-      width:90%;
-      max-width:1200px;
-      margin:auto;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    /* NAVBAR */
-
-    nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:30px 0;
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    .logo{
-      font-size:24px;
-      font-weight:700;
-      color:#60a5fa;
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(8,10,15,0.78);
+      backdrop-filter: blur(18px);
     }
 
-    .nav-links{
-      display:flex;
-      gap:30px;
+    nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .nav-links a{
-      color:#cbd5e1;
-      transition:0.3s;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
     }
 
-    .nav-links a:hover{
-      color:#60a5fa;
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--teal), var(--amber));
+      box-shadow: 0 12px 34px rgba(53,208,186,0.18);
     }
 
-    /* HERO */
-
-    .hero{
-      min-height:90vh;
-      display:flex;
-      align-items:center;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
     }
 
-    .hero-content{
-      max-width:700px;
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 8px;
+      transition: color 180ms ease, background 180ms ease;
     }
 
-    .tag{
-      display:inline-block;
-      background:rgba(96,165,250,0.15);
-      color:#60a5fa;
-      padding:10px 18px;
-      border-radius:999px;
-      margin-bottom:25px;
-      font-size:14px;
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.07);
     }
 
-    h1{
-      font-size:72px;
-      line-height:1.1;
-      margin-bottom:20px;
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      align-items: center;
+      gap: 56px;
+      padding: 78px 0 68px;
     }
 
-    .gradient{
-      background:linear-gradient(90deg,#60a5fa,#a78bfa);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 22px;
     }
 
-    .hero p{
-      color:#94a3b8;
-      font-size:20px;
-      line-height:1.8;
-      margin-bottom:40px;
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--teal);
     }
 
-    .buttons{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
+    h1 {
+      max-width: 760px;
+      font-size: clamp(48px, 7.4vw, 92px);
+      line-height: 0.96;
+      letter-spacing: 0;
+      margin-bottom: 26px;
     }
 
-    .btn{
-      padding:14px 28px;
-      border-radius:12px;
-      font-weight:600;
-      transition:0.3s;
-      display:inline-block;
+    .highlight {
+      color: var(--amber);
     }
 
-    .btn-primary{
-      background:linear-gradient(90deg,#3b82f6,#8b5cf6);
-      color:white;
+    .hero-copy {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.75;
+      margin-bottom: 34px;
     }
 
-    .btn-primary:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 30px rgba(59,130,246,0.4);
+    .actions,
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    .btn-secondary{
-      border:1px solid #334155;
-      color:#cbd5e1;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
     }
 
-    .btn-secondary:hover{
-      border-color:#60a5fa;
-      color:white;
+    .btn-primary {
+      color: #07100e;
+      background: linear-gradient(135deg, var(--teal), var(--green));
+      box-shadow: 0 16px 42px rgba(53,208,186,0.2);
     }
 
-    /* PROJECTS */
-
-    .section{
-      padding:120px 0;
+    .btn-secondary {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.05);
     }
 
-    .section-title{
-      font-size:42px;
-      margin-bottom:60px;
-      text-align:center;
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
-    .project-card{
-      background:linear-gradient(180deg,#111827,#0f172a);
-      border:1px solid #1e293b;
-      border-radius:24px;
-      padding:40px;
-      transition:0.4s;
+    .showcase {
+      position: relative;
+      min-height: 540px;
+      display: grid;
+      align-content: center;
     }
 
-    .project-card:hover{
-      transform:translateY(-6px);
-      border-color:#3b82f6;
+    .screen {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(27,32,43,0.96), rgba(15,18,24,0.94));
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .project-tag{
-      color:#60a5fa;
-      font-size:14px;
-      margin-bottom:20px;
+    .screen-bar {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
     }
 
-    .project-title{
-      font-size:36px;
-      margin-bottom:20px;
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--coral);
     }
 
-    .project-description{
-      color:#94a3b8;
-      line-height:1.9;
-      margin-bottom:30px;
-      font-size:17px;
+    .dot:nth-child(2) {
+      background: var(--amber);
     }
 
-    .tech-stack{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:35px;
+    .dot:nth-child(3) {
+      background: var(--teal);
     }
 
-    .tech{
-      background:#1e293b;
-      padding:10px 16px;
-      border-radius:999px;
-      color:#cbd5e1;
-      font-size:14px;
+    .terminal {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+      color: #dce6e3;
     }
 
-    .store-buttons{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
+    .terminal-row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.035);
     }
 
-    .store-btn{
-      background:#111827;
-      border:1px solid #334155;
-      padding:14px 22px;
-      border-radius:14px;
-      color:white;
-      transition:0.3s;
+    .terminal-label {
+      color: var(--amber);
+      font-weight: 800;
     }
 
-    .store-btn:hover{
-      border-color:#60a5fa;
-      transform:translateY(-2px);
+    .terminal strong {
+      color: var(--teal);
+      font-weight: 800;
     }
 
-    /* ABOUT */
-
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:center;
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 0 24px 24px;
     }
 
-    .about-text p{
-      color:#94a3b8;
-      line-height:1.9;
-      margin-bottom:20px;
+    .metric {
+      min-height: 88px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
     }
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:20px;
+    .metric b {
+      display: block;
+      color: var(--text);
+      font-size: 24px;
+      margin-bottom: 6px;
     }
 
-    .stat{
-      background:#111827;
-      padding:30px;
-      border-radius:20px;
-      text-align:center;
-      border:1px solid #1e293b;
+    .metric span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
     }
 
-    .stat h3{
-      font-size:36px;
-      color:#60a5fa;
-      margin-bottom:10px;
+    .section {
+      padding: 96px 0;
     }
 
-    .stat p{
-      color:#94a3b8;
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
     }
 
-    /* FOOTER */
-
-    footer{
-      padding:60px 0;
-      border-top:1px solid #1e293b;
-      text-align:center;
-      color:#64748b;
+    .section-kicker {
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
-    @media(max-width:900px){
+    h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: 0;
+      margin-bottom: 16px;
+    }
 
-      h1{
-        font-size:48px;
+    .section-head p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-height: 560px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(21,25,34,0.78);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.24);
+      overflow: hidden;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: rgba(53,208,186,0.48);
+    }
+
+    .project-visual {
+      min-height: 210px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(53,208,186,0.14), rgba(255,107,87,0.08)),
+        var(--panel-strong);
+    }
+
+    .invoice-visual,
+    .ai-visual {
+      height: 100%;
+      min-height: 174px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .invoice-row,
+    .chat-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      background: rgba(8,10,15,0.42);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .invoice-row strong,
+    .chat-row strong {
+      color: var(--text);
+    }
+
+    .chat-row {
+      display: block;
+      line-height: 1.55;
+    }
+
+    .chat-row.user {
+      margin-left: 34px;
+      border-color: rgba(245,184,75,0.32);
+    }
+
+    .chat-row.ai {
+      margin-right: 34px;
+      border-color: rgba(53,208,186,0.34);
+    }
+
+    .project-body {
+      flex: 1;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-meta {
+      color: var(--amber);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 30px;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      margin-bottom: 24px;
+    }
+
+    .chip {
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      color: #d5dae2;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .capabilities {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .capability {
+      min-height: 210px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .capability b {
+      display: block;
+      color: var(--teal);
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .capability h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .capability p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .about-band {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .about p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.82;
+      margin-bottom: 18px;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .focus-item {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(8,10,15,0.42);
+    }
+
+    .focus-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(53,208,186,0.12);
+      color: var(--teal);
+      font-weight: 800;
+    }
+
+    .focus-item h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .focus-item p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(53,208,186,0.14), rgba(245,184,75,0.08)),
+        rgba(255,255,255,0.045);
+    }
+
+    .contact h2 {
+      font-size: clamp(30px, 4vw, 48px);
+    }
+
+    .contact p {
+      max-width: 640px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    footer {
+      padding: 34px 0 44px;
+      color: #7e8795;
+      font-size: 14px;
+    }
+
+    @media (max-width: 940px) {
+      .hero,
+      .about,
+      .contact {
+        grid-template-columns: 1fr;
       }
 
-      .about{
-        grid-template-columns:1fr;
+      .hero {
+        padding-top: 56px;
       }
 
-      .section-title{
-        font-size:34px;
+      .showcase {
+        min-height: auto;
       }
 
-      .project-title{
-        font-size:28px;
+      .projects,
+      .capabilities {
+        grid-template-columns: 1fr;
       }
     }
 
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 46px 0 56px;
+      }
+
+      .hero-copy,
+      .section-head p,
+      .about p {
+        font-size: 16px;
+      }
+
+      .terminal-row {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .project {
+        min-height: auto;
+      }
+
+      .project-body,
+      .contact {
+        padding: 22px;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+    }
   </style>
-
 </head>
 
 <body>
+  <header class="topbar">
+    <div class="container">
+      <nav aria-label="Primary navigation">
+        <a class="logo" href="#top" aria-label="Sikandar portfolio home">
+          <span class="logo-mark">S</span>
+          <span>Sikandar</span>
+        </a>
 
-  <div class="container">
-
-    <nav>
-      <div class="logo">Sikandar</div>
-
-      <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
-      </div>
-    </nav>
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-      <div class="hero-content">
-
-        <div class="tag">
-          Full Stack Developer • Mobile & Web Apps
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#about">About</a>
+          <a href="https://github.com/ask-sikandar" target="_blank" rel="noreferrer">GitHub</a>
         </div>
+      </nav>
+    </div>
+  </header>
 
-        <h1>
-          I build modern
-          <span class="gradient">web & mobile experiences</span>
-        </h1>
-
-        <p>
-          Passionate developer focused on building scalable, modern and user-friendly digital products.
-          I create responsive web platforms, mobile applications and polished user experiences with clean architecture and modern technologies.
+  <main id="top">
+    <section class="container hero">
+      <div>
+        <div class="eyebrow">Full Stack Developer</div>
+        <h1>Production apps, AI systems, and interfaces that feel <span class="highlight">finished</span>.</h1>
+        <p class="hero-copy">
+          I build web and mobile products with clean architecture, responsive interfaces, and practical AI workflows. My work spans production business apps, RAG assistants, real-time chat, dashboards, and deployment-ready systems.
         </p>
 
-        <div class="buttons">
-
-          <a href="#projects" class="btn btn-primary">
-            View Projects
-          </a>
-
-          <a href="https://github.com/YOUR_USERNAME" target="_blank" class="btn btn-secondary">
-            GitHub Profile
-          </a>
-
+        <div class="actions">
+          <a href="#projects" class="btn btn-primary">View Selected Work</a>
+          <a href="https://github.com/ask-sikandar" target="_blank" rel="noreferrer" class="btn btn-secondary">GitHub Profile</a>
         </div>
-
       </div>
 
+      <div class="showcase" aria-label="Engineering showcase">
+        <div class="screen">
+          <div class="screen-bar">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+
+          <div class="terminal">
+            <div class="terminal-row">
+              <span class="terminal-label">build</span>
+              <span>Next.js, Django, DRF, mobile-ready UI, production deployment</span>
+            </div>
+            <div class="terminal-row">
+              <span class="terminal-label">ai</span>
+              <span>RAG assistant with <strong>pgvector</strong>, streaming WebSockets, Ollama, source-backed answers</span>
+            </div>
+            <div class="terminal-row">
+              <span class="terminal-label">ship</span>
+              <span>Responsive products with auth flows, admin surfaces, clean service layers, and tests</span>
+            </div>
+          </div>
+
+          <div class="mini-metrics">
+            <div class="metric">
+              <b>AI</b>
+              <span>Retrieval, embeddings, intent detection, streaming responses</span>
+            </div>
+            <div class="metric">
+              <b>Web</b>
+              <span>Fast, responsive, accessible product experiences</span>
+            </div>
+            <div class="metric">
+              <b>Apps</b>
+              <span>Mobile-first workflows for real users and stores</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-  </div>
-
-  <!-- PROJECTS -->
-
-  <section class="section" id="projects">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        Featured Project
-      </h2>
-
-      <div class="project-card">
-
-        <div class="project-tag">
-          Production Application
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Selected work</div>
+          <h2>Projects with real product weight.</h2>
+          <p>
+            A tighter look at systems I have built or contributed to: production-ready business software, AI assistant architecture, cross-platform UX, and the infrastructure around them.
+          </p>
         </div>
 
-        <h3 class="project-title">
-          Invogo Australia
-        </h3>
+        <div class="projects">
+          <article class="project">
+            <div class="project-visual" aria-hidden="true">
+              <div class="invoice-visual">
+                <div class="invoice-row"><strong>Invogo</strong><span>Australia</span></div>
+                <div class="invoice-row"><span>Invoice workflow</span><strong>Ready</strong></div>
+                <div class="invoice-row"><span>Mobile experience</span><strong>iOS + Android</strong></div>
+                <div class="invoice-row"><span>Deployment</span><strong>Production</strong></div>
+              </div>
+            </div>
 
-        <p class="project-description">
+            <div class="project-body">
+              <div class="project-meta">Production application</div>
+              <h3>Invogo Australia</h3>
+              <p>
+                A modern invoicing and business management platform for contractors, freelancers, and Australian businesses. I contributed to the responsive web experience, mobile app integrations, authentication flows, and production-ready deployment surface.
+              </p>
 
-          Invogo is a modern invoicing and business management platform designed to simplify invoicing workflows for contractors, freelancers and businesses in Australia.
+              <div class="chips">
+                <span class="chip">Responsive UI</span>
+                <span class="chip">Mobile Apps</span>
+                <span class="chip">Authentication</span>
+                <span class="chip">Production Deployment</span>
+                <span class="chip">Web Platform</span>
+              </div>
 
-          The platform focuses on speed, usability and accessibility while delivering a smooth cross-platform experience across web and mobile devices.
+              <div class="project-actions">
+                <a href="https://www.invogo.com.au/" target="_blank" rel="noreferrer" class="btn btn-primary">Live Website</a>
+                <a href="https://apps.apple.com/au/app/invogo/id6755755296" target="_blank" rel="noreferrer" class="btn btn-secondary">App Store</a>
+                <a href="https://play.google.com/store/apps/details?id=com.invogo.app" target="_blank" rel="noreferrer" class="btn btn-secondary">Google Play</a>
+              </div>
+            </div>
+          </article>
 
-          I contributed to building and deploying a scalable production-ready application with responsive UI, mobile-first architecture and optimized user experience.
+          <article class="project">
+            <div class="project-visual" aria-hidden="true">
+              <div class="ai-visual">
+                <div class="chat-row user"><strong>Lead:</strong> How much is a 40ft container?</div>
+                <div class="chat-row ai"><strong>Assistant:</strong> Retrieves pricing docs, streams an answer, cites sources, and updates lead score.</div>
+                <div class="chat-row"><strong>Pipeline:</strong> Documents -> chunks -> embeddings -> pgvector -> LLM response</div>
+              </div>
+            </div>
 
-          The project includes web deployment, mobile app integrations, responsive layouts, authentication flows and real-world production infrastructure.
+            <div class="project-body">
+              <div class="project-meta">AI sales assistant POC</div>
+              <h3>Stackr / Memox AI Sales Assistant</h3>
+              <p>
+                A RAG-based AI sales assistant for Pacific Container Co. prospects. The system ingests company documents, retrieves relevant chunks with pgvector, streams responses over WebSockets, classifies intent, tracks conversation history, and powers admin views for documents and leads.
+              </p>
 
-        </p>
+              <div class="chips">
+                <span class="chip">Django</span>
+                <span class="chip">DRF</span>
+                <span class="chip">Next.js</span>
+                <span class="chip">WebSockets</span>
+                <span class="chip">pgvector</span>
+                <span class="chip">Ollama</span>
+                <span class="chip">RAG</span>
+                <span class="chip">Docker</span>
+              </div>
 
-        <div class="tech-stack">
-
-          <div class="tech">HTML</div>
-          <div class="tech">CSS</div>
-          <div class="tech">JavaScript</div>
-          <div class="tech">Responsive UI</div>
-          <div class="tech">Mobile Apps</div>
-          <div class="tech">Production Deployment</div>
-
+              <div class="project-actions">
+                <a href="stackr_readme.md" class="btn btn-primary">Read Project Notes</a>
+                <a href="https://github.com/ask-sikandar" target="_blank" rel="noreferrer" class="btn btn-secondary">GitHub</a>
+              </div>
+            </div>
+          </article>
         </div>
-
-        <div class="buttons">
-
-          <a
-            href="https://www.invogo.com.au/"
-            target="_blank"
-            class="btn btn-primary"
-          >
-            Live Website
-          </a>
-
-        </div>
-
-        <br><br>
-
-        <div class="store-buttons">
-
-          <a
-            href="https://apps.apple.com/au/app/invogo/id6755755296"
-            target="_blank"
-            class="store-btn"
-          >
-            🍎 App Store
-          </a>
-
-          <a
-            href="https://play.google.com/store/apps/details?id=mobi.ingogo.driver"
-            target="_blank"
-            class="store-btn"
-          >
-            ▶ Google Play
-          </a>
-
-        </div>
-
       </div>
+    </section>
 
-    </div>
-
-  </section>
-
-  <!-- ABOUT -->
-
-  <section class="section" id="about">
-
-    <div class="container">
-
-      <div class="about">
-
-        <div class="about-text">
-
-          <h2 class="section-title" style="text-align:left;">
-            About Me
-          </h2>
-
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Capabilities</div>
+          <h2>I like building the whole thing.</h2>
           <p>
-            I'm a developer passionate about creating high-quality digital experiences that combine clean design with strong engineering principles.
+            The useful parts of a product rarely live in one layer, so I focus on the path from interface to API to data model to deployment.
           </p>
-
-          <p>
-            I enjoy building scalable web applications, mobile platforms and modern UI systems that deliver smooth user experiences across devices.
-          </p>
-
-          <p>
-            My focus is on performance, responsive design, accessibility and production-ready development workflows.
-          </p>
-
         </div>
 
-        <div class="stats">
-
-          <div class="stat">
-            <h3>Web</h3>
-            <p>Modern Responsive Websites</p>
+        <div class="capabilities">
+          <div class="capability">
+            <b>01</b>
+            <h3>Product Interfaces</h3>
+            <p>Responsive pages, dashboards, admin flows, mobile-first layouts, and interaction states that stay clear under real usage.</p>
           </div>
 
-          <div class="stat">
-            <h3>Apps</h3>
-            <p>Mobile Application Development</p>
+          <div class="capability">
+            <b>02</b>
+            <h3>Full Stack Systems</h3>
+            <p>REST APIs, authentication, relational data, service layers, background workflows, and clean integration boundaries.</p>
           </div>
 
-          <div class="stat">
-            <h3>UI/UX</h3>
-            <p>Clean Modern Interfaces</p>
+          <div class="capability">
+            <b>03</b>
+            <h3>AI Workflows</h3>
+            <p>Document ingestion, embeddings, vector search, RAG orchestration, streaming chat, source citations, and evaluation scripts.</p>
           </div>
 
-          <div class="stat">
-            <h3>Deploy</h3>
-            <p>Production Ready Deployments</p>
+          <div class="capability">
+            <b>04</b>
+            <h3>Production Readiness</h3>
+            <p>Dockerized environments, deployment surfaces, tests, accessible UI, performance-minded CSS, and practical maintainability.</p>
           </div>
-
         </div>
-
       </div>
+    </section>
 
-    </div>
+    <section class="section about-band" id="about">
+      <div class="container about">
+        <div>
+          <div class="section-kicker">About</div>
+          <h2>Clean design, strong engineering, practical delivery.</h2>
+          <p>
+            I am a developer who enjoys turning rough product ideas into polished, working software. I care about the feel of the interface and the shape of the code underneath it.
+          </p>
+          <p>
+            My strongest work happens where product thinking and engineering meet: workflows that are easy to use, APIs that are predictable, and systems that can keep growing after the first release.
+          </p>
+        </div>
 
-  </section>
+        <div class="focus-list">
+          <div class="focus-item">
+            <span class="focus-icon">UI</span>
+            <div>
+              <h3>Interfaces that communicate quickly</h3>
+              <p>Clear hierarchy, compact layouts, responsive behavior, and visual systems that feel intentional.</p>
+            </div>
+          </div>
+
+          <div class="focus-item">
+            <span class="focus-icon">API</span>
+            <div>
+              <h3>Backends that stay understandable</h3>
+              <p>Separation of concerns, testable services, reliable endpoints, and data structures matched to the product.</p>
+            </div>
+          </div>
+
+          <div class="focus-item">
+            <span class="focus-icon">AI</span>
+            <div>
+              <h3>AI features with grounded behavior</h3>
+              <p>Retrieval, citations, eval scripts, and mockable architecture for development without heavy infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2>Have a product that needs to feel sharper?</h2>
+            <p>
+              I am interested in full stack products, AI-assisted workflows, production web apps, and polished mobile experiences.
+            </p>
+          </div>
+
+          <div class="actions">
+            <a href="https://github.com/ask-sikandar" target="_blank" rel="noreferrer" class="btn btn-primary">GitHub</a>
+            <a href="#projects" class="btn btn-secondary">Projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-
     <div class="container">
-
-      © 2026 Sikandar • Built with GitHub Pages
-
+      © 2026 Sikandar. Built with GitHub Pages.
     </div>
-
   </footer>
-
 </body>
 </html>
