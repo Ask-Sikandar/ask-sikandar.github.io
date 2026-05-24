@@ -3,81 +3,496 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sikandar Portfolio</title>
+
+  <title>Sikandar | Developer Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body{
+
+    *{
       margin:0;
-      font-family:Arial, sans-serif;
-      background:#0f172a;
-      color:white;
-      text-align:center;
+      padding:0;
+      box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#0b1120;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:30px 0;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:700;
+      color:#60a5fa;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+
+    .nav-links a{
+      color:#cbd5e1;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#60a5fa;
+    }
+
+    /* HERO */
+
     .hero{
-      padding:100px 20px;
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .tag{
+      display:inline-block;
+      background:rgba(96,165,250,0.15);
+      color:#60a5fa;
+      padding:10px 18px;
+      border-radius:999px;
+      margin-bottom:25px;
+      font-size:14px;
     }
 
     h1{
-      font-size:60px;
-      margin-bottom:10px;
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:20px;
     }
 
-    p{
+    .gradient{
+      background:linear-gradient(90deg,#60a5fa,#a78bfa);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      color:#94a3b8;
       font-size:20px;
-      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:40px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
     }
 
     .btn{
-      display:inline-block;
-      margin-top:20px;
-      padding:12px 24px;
-      background:#38bdf8;
-      color:black;
-      text-decoration:none;
-      border-radius:8px;
-      font-weight:bold;
-    }
-
-    .projects{
-      padding:50px 20px;
-    }
-
-    .card{
-      background:#1e293b;
-      margin:20px auto;
-      padding:20px;
-      max-width:500px;
+      padding:14px 28px;
       border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
     }
+
+    .btn-primary{
+      background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 30px rgba(59,130,246,0.4);
+    }
+
+    .btn-secondary{
+      border:1px solid #334155;
+      color:#cbd5e1;
+    }
+
+    .btn-secondary:hover{
+      border-color:#60a5fa;
+      color:white;
+    }
+
+    /* PROJECTS */
+
+    .section{
+      padding:120px 0;
+    }
+
+    .section-title{
+      font-size:42px;
+      margin-bottom:60px;
+      text-align:center;
+    }
+
+    .project-card{
+      background:linear-gradient(180deg,#111827,#0f172a);
+      border:1px solid #1e293b;
+      border-radius:24px;
+      padding:40px;
+      transition:0.4s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-6px);
+      border-color:#3b82f6;
+    }
+
+    .project-tag{
+      color:#60a5fa;
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    .project-title{
+      font-size:36px;
+      margin-bottom:20px;
+    }
+
+    .project-description{
+      color:#94a3b8;
+      line-height:1.9;
+      margin-bottom:30px;
+      font-size:17px;
+    }
+
+    .tech-stack{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:35px;
+    }
+
+    .tech{
+      background:#1e293b;
+      padding:10px 16px;
+      border-radius:999px;
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .store-buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .store-btn{
+      background:#111827;
+      border:1px solid #334155;
+      padding:14px 22px;
+      border-radius:14px;
+      color:white;
+      transition:0.3s;
+    }
+
+    .store-btn:hover{
+      border-color:#60a5fa;
+      transform:translateY(-2px);
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .about-text p{
+      color:#94a3b8;
+      line-height:1.9;
+      margin-bottom:20px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+
+    .stat{
+      background:#111827;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      border:1px solid #1e293b;
+    }
+
+    .stat h3{
+      font-size:36px;
+      color:#60a5fa;
+      margin-bottom:10px;
+    }
+
+    .stat p{
+      color:#94a3b8;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:60px 0;
+      border-top:1px solid #1e293b;
+      text-align:center;
+      color:#64748b;
+    }
+
+    @media(max-width:900px){
+
+      h1{
+        font-size:48px;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      .section-title{
+        font-size:34px;
+      }
+
+      .project-title{
+        font-size:28px;
+      }
+    }
+
   </style>
+
 </head>
 
 <body>
 
-  <section class="hero">
-    <h1>Sikandar</h1>
-    <p>Web Developer • Designer • Creator</p>
+  <div class="container">
 
-    <a class="btn" href="https://github.com/Ask-Sikandar">
-      My GitHub
-    </a>
-  </section>
+    <nav>
+      <div class="logo">Sikandar</div>
 
-  <section class="projects">
-    <h2>Projects</h2>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
+      </div>
+    </nav>
 
-    <div class="card">
-      <h3>Project One</h3>
-      <p>Description of your project.</p>
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="tag">
+          Full Stack Developer • Mobile & Web Apps
+        </div>
+
+        <h1>
+          I build modern
+          <span class="gradient">web & mobile experiences</span>
+        </h1>
+
+        <p>
+          Passionate developer focused on building scalable, modern and user-friendly digital products.
+          I create responsive web platforms, mobile applications and polished user experiences with clean architecture and modern technologies.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#projects" class="btn btn-primary">
+            View Projects
+          </a>
+
+          <a href="https://github.com/YOUR_USERNAME" target="_blank" class="btn btn-secondary">
+            GitHub Profile
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- PROJECTS -->
+
+  <section class="section" id="projects">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Featured Project
+      </h2>
+
+      <div class="project-card">
+
+        <div class="project-tag">
+          Production Application
+        </div>
+
+        <h3 class="project-title">
+          Invogo Australia
+        </h3>
+
+        <p class="project-description">
+
+          Invogo is a modern invoicing and business management platform designed to simplify invoicing workflows for contractors, freelancers and businesses in Australia.
+
+          The platform focuses on speed, usability and accessibility while delivering a smooth cross-platform experience across web and mobile devices.
+
+          I contributed to building and deploying a scalable production-ready application with responsive UI, mobile-first architecture and optimized user experience.
+
+          The project includes web deployment, mobile app integrations, responsive layouts, authentication flows and real-world production infrastructure.
+
+        </p>
+
+        <div class="tech-stack">
+
+          <div class="tech">HTML</div>
+          <div class="tech">CSS</div>
+          <div class="tech">JavaScript</div>
+          <div class="tech">Responsive UI</div>
+          <div class="tech">Mobile Apps</div>
+          <div class="tech">Production Deployment</div>
+
+        </div>
+
+        <div class="buttons">
+
+          <a
+            href="https://www.invogo.com.au/"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            Live Website
+          </a>
+
+        </div>
+
+        <br><br>
+
+        <div class="store-buttons">
+
+          <a
+            href="https://apps.apple.com/au/app/invogo/id6755755296"
+            target="_blank"
+            class="store-btn"
+          >
+            🍎 App Store
+          </a>
+
+          <a
+            href="https://play.google.com/store/apps/details?id=mobi.ingogo.driver"
+            target="_blank"
+            class="store-btn"
+          >
+            ▶ Google Play
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="card">
-      <h3>Project Two</h3>
-      <p>Description of your project.</p>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="section" id="about">
+
+    <div class="container">
+
+      <div class="about">
+
+        <div class="about-text">
+
+          <h2 class="section-title" style="text-align:left;">
+            About Me
+          </h2>
+
+          <p>
+            I'm a developer passionate about creating high-quality digital experiences that combine clean design with strong engineering principles.
+          </p>
+
+          <p>
+            I enjoy building scalable web applications, mobile platforms and modern UI systems that deliver smooth user experiences across devices.
+          </p>
+
+          <p>
+            My focus is on performance, responsive design, accessibility and production-ready development workflows.
+          </p>
+
+        </div>
+
+        <div class="stats">
+
+          <div class="stat">
+            <h3>Web</h3>
+            <p>Modern Responsive Websites</p>
+          </div>
+
+          <div class="stat">
+            <h3>Apps</h3>
+            <p>Mobile Application Development</p>
+          </div>
+
+          <div class="stat">
+            <h3>UI/UX</h3>
+            <p>Clean Modern Interfaces</p>
+          </div>
+
+          <div class="stat">
+            <h3>Deploy</h3>
+            <p>Production Ready Deployments</p>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
   </section>
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 Sikandar • Built with GitHub Pages
+
+    </div>
+
+  </footer>
 
 </body>
 </html>
