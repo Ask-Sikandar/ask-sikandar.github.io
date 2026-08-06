@@ -407,7 +407,8 @@
     .invoice-visual,
     .ai-visual,
     .graph-visual,
-    .security-visual {
+    .security-visual,
+    .voice-visual {
       height: 100%;
       min-height: 174px;
       display: grid;
@@ -417,7 +418,8 @@
     .invoice-row,
     .chat-row,
     .graph-row,
-    .security-row {
+    .security-row,
+    .voice-row {
       display: flex;
       justify-content: space-between;
       gap: 12px;
@@ -432,8 +434,30 @@
     .invoice-row strong,
     .chat-row strong,
     .graph-row strong,
-    .security-row strong {
+    .security-row strong,
+    .voice-row strong {
       color: var(--text);
+    }
+
+    .voice-row {
+      display: block;
+      line-height: 1.55;
+      border-color: rgba(159,140,255,0.28);
+    }
+
+    .voice-row.caller {
+      margin-left: 34px;
+      border-color: rgba(245,184,75,0.3);
+    }
+
+    .voice-row.agent {
+      margin-right: 34px;
+      border-color: rgba(53,208,186,0.32);
+    }
+
+    .voice-row.tool {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
     }
 
     .chat-row {
@@ -865,6 +889,64 @@
         <div class="projects">
           <article class="project">
             <div class="project-visual" aria-hidden="true">
+              <div class="voice-visual">
+                <div class="voice-row agent"><strong>Riley:</strong> Thanks for calling. Can I start with your phone number?</div>
+                <div class="voice-row tool"><strong>tool_call</strong> find_patient_by_phone -> no match, new registration</div>
+                <div class="voice-row caller"><strong>Caller:</strong> It's actually 12 April, not December.</div>
+                <div class="voice-row tool"><strong>read-back</strong> confirm -> create_patient -> 201 saved</div>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta">AI Systems &middot; Voice</div>
+              <h3>PHI Collection Voice Agent</h3>
+              <p>
+                A phone-reachable voice AI agent that conversationally registers patients, validates every field as it is spoken, and persists the record through the same service layer that backs a public REST API. Speech-to-text, turn-taking, and text-to-speech run on Vapi; an LLM drives the conversation and calls three typed tools on a FastAPI backend over an authenticated webhook.
+              </p>
+
+              <div class="project-list">
+                <div>
+                  <h4>One data path, two entry points</h4>
+                  <p>The voice webhook and the REST API call identical service functions, so a field collected over the phone passes exactly the same Pydantic validation and database constraints as one submitted by <code>curl</code>. No duplicated rules, no drift.</p>
+                </div>
+
+                <div>
+                  <h4>Conversation designed for accuracy</h4>
+                  <p>The agent collects the phone number first and looks it up before anything else to catch returning callers, offers optional fields exactly once, performs a mandatory read-back before saving, and re-prompts on a single named field when the API returns a field-level validation error rather than restarting the whole flow.</p>
+                </div>
+
+                <div>
+                  <h4>Handled like health data</h4>
+                  <p>Every tool-call webhook is authenticated with a shared secret. All credentials load from environment variables through typed settings, with nothing hardcoded in source. Records are soft-deleted so history is never destroyed, and each completed registration emits a structured audit line without exposing internals to the caller.</p>
+                </div>
+
+                <div>
+                  <h4>Shipped, tested, observable</h4>
+                  <p>Dockerised with a persistent volume and deployed to a live environment. 28 pytest cases cover CRUD paths, per-field validation failures, soft-delete semantics, and webhook auth and dispatch. Request logging plus JSON-formatted production logs make call failures traceable.</p>
+                </div>
+              </div>
+
+              <div class="chips">
+                <span class="chip">Voice AI</span>
+                <span class="chip">LLM Tool Calling</span>
+                <span class="chip">FastAPI</span>
+                <span class="chip">Pydantic</span>
+                <span class="chip">SQLAlchemy</span>
+                <span class="chip">Prompt Engineering</span>
+                <span class="chip">Webhook Auth</span>
+                <span class="chip">Docker</span>
+                <span class="chip">pytest</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="voice_agent_readme.md" class="btn btn-primary">Read Project Notes</a>
+                <a href="https://github.com/Ask-Sikandar/health_voice_agent" target="_blank" rel="noreferrer" class="btn btn-secondary">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual" aria-hidden="true">
               <div class="invoice-visual">
                 <div class="invoice-row"><strong>Invogo</strong><span>Australia</span></div>
                 <div class="invoice-row"><span>Invoice workflow</span><strong>Ready</strong></div>
@@ -1055,6 +1137,7 @@
           <h3 class="exploring-title">Currently Exploring</h3>
           <div class="exploring" aria-label="Currently exploring">
             <span class="chip">AI Security</span>
+            <span class="chip">Voice agents &amp; realtime LLM tool calling</span>
             <span class="chip">Repository-level reasoning systems</span>
             <span class="chip">Federated learning</span>
             <span class="chip">Distributed systems</span>
