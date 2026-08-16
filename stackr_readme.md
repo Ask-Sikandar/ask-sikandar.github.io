@@ -138,3 +138,23 @@ See [DECISIONS.md](DECISIONS.md) for full reasoning.
 - **Keyword intent classification** — sub-ms, fully testable, accurate for 4 categories
 - **SOLID service layer** — ABCs + `SERVICE_CLASSES` registry; tests inject mocks
 - **Lead scoring dashboard** — added beyond spec: conversion=25pts, pricing=10pts
+
+## Answer Quality Evaluation
+
+A golden-set harness (`eval/eval_quality.py`) runs 10 questions against the
+live pipeline (real retrieval + real LLM, not mocked), scoring each answer by
+embedding cosine similarity against expected reference content, alongside
+intent-classification accuracy.
+
+```bash
+docker-compose exec backend uv run python eval/eval_quality.py --verbose
+```
+
+| Metric | Result |
+|---|---|
+| Avg. semantic similarity | _fill in after running_ |
+| Pass / Warn / Fail (of 10) | _fill in after running_ |
+| Intent classification accuracy | _fill in after running_ |
+| Avg. response latency | _fill in after running_ |
+
+_Numbers below the fold — run the command above against the live stack and drop the output here._
