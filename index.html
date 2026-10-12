@@ -762,6 +762,23 @@
       }
     }
   </style>
+
+  <!-- GA4 Measurement ID -->
+  <script>
+    const GA_MEASUREMENT_ID = "G-LTB8RSWR0C";
+    if (/^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID)) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID);
+
+      const googleTag = document.createElement("script");
+      googleTag.async = true;
+      googleTag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      document.head.appendChild(googleTag);
+    }
+  </script>
 </head>
 
 <body>
